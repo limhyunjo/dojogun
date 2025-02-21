@@ -1,6 +1,5 @@
-package test.project;
+package test.project.backend.data.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -11,15 +10,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class userD {
+public class Order {
 
     @Id
     public Long id;
-
-    @Column(nullable = false)
-    public String username;
-
-
-    @Column(nullable = false)
-    public String password;
 }
