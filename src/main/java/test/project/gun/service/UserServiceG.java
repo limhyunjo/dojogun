@@ -1,4 +1,4 @@
 package test.project.gun.service;
 
-public interface UserService {
+public interface UserServiceG {
 }

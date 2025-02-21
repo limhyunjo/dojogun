@@ -1,4 +1,5 @@
-package test.project.gun.data.entity;
+package test.project.jo.data.entity;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class order {
+public class postJ {
 
     @Id
     public Long id;

@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @NoArgsConstructor
 @RequestMapping("/user")
-public class UserControlle1 {
+public class UserControllerD {
 
 }

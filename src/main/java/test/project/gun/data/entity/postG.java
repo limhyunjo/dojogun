@@ -1,4 +1,4 @@
-package test.project;
+package test.project.gun.data.entity;
 
 
 import jakarta.persistence.Entity;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class post {
+public class postG {
 
     @Id
     public Long id;
