@@ -19,7 +19,7 @@ public class user {
     @Column(nullable = false)
     public String username;
 
-
+  //
     @Column(nullable = false)
     public String password;
 }
