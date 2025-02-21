@@ -19,7 +19,6 @@ public class User {
     @Column(nullable = false)
     public String username;
 
-    //asdfasdfasdf
     @Column(nullable = false)
     public String password;
 }
