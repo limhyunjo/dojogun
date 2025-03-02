@@ -1,14 +1,11 @@
 package test.project.backend.data.repository.Impl;
 
-import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Repository;
@@ -69,6 +66,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {// 커스텀 re
                 .select(post.count())
                 .from(post)
                 .leftJoin(post.user, user);
+        // user가 없는 게시글도 조회
 
         return PageableExecutionUtils.getPage(content,pageable, totalCount::fetchOne);
     }

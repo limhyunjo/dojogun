@@ -31,10 +31,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true )
+    @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true )
+    @OneToMany(mappedBy = "user" )
     private List<Order> orders = new ArrayList<>();
 
 
