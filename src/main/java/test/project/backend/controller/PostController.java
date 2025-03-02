@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import test.project.backend.data.dto.PostDto;
 import test.project.backend.data.dto.PostResponseDto;
+import test.project.backend.data.entity.SearchOption;
 import test.project.backend.service.PostService;
 
 import java.util.Optional;
@@ -73,4 +74,23 @@ public class PostController {
         postService.deletePost(id);
         return ResponseEntity.status(HttpStatus.OK).body("정상 삭제됨");
     }
+
+
+    // 게시글 검색
+
+
+
+
+        @GetMapping("/search")
+        public ResponseEntity<Page<PostResponseDto>> searchPosts(
+                @RequestParam String keyword,
+                @RequestParam(required = false) SearchOption option, // 검색 옵션 (선택)
+                @PageableDefault(size = 10, page = 0) Pageable pageable) {
+
+            Page<PostResponseDto> searchResults = postService.searchPost(keyword, option, pageable);
+            return ResponseEntity.ok(searchResults);
+        }
+
+
+
 }

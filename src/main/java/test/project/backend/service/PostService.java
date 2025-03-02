@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import test.project.backend.data.dto.PostDto;
 import test.project.backend.data.dto.PostResponseDto;
+import test.project.backend.data.entity.SearchOption;
 
 import java.util.Optional;
 
@@ -22,5 +23,9 @@ public interface PostService {
     PostResponseDto updatePost(Long id, PostDto postDto);
 
     void deletePost(Long id) throws Exception;
+
+
+    Page<PostResponseDto> searchPost( String keyword, SearchOption option, Pageable pageable);
+
 
 }

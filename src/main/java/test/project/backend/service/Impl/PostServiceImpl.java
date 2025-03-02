@@ -1,5 +1,6 @@
 package test.project.backend.service.Impl;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import test.project.backend.data.dto.PostDto;
 import test.project.backend.data.dto.PostResponseDto;
 import test.project.backend.data.entity.Post;
+import test.project.backend.data.entity.SearchOption;
 import test.project.backend.data.entity.User;
 import test.project.backend.data.repository.PostRepository;
 import test.project.backend.data.repository.UserRepository;
@@ -25,10 +27,11 @@ public class PostServiceImpl implements PostService {
 
 
 
+
     // 커스텀repository 받기
     @Override
     public Page<PostResponseDto> getPosts(Pageable pageable) {
-        return postRepository.searchPage(pageable); // 바로 돌려줌
+        return postRepository.getPosts(pageable); // 바로 돌려줌
     }
 
     // 작성한 유저 아이디와 게시글 데이터를 받아서
@@ -118,4 +121,15 @@ public class PostServiceImpl implements PostService {
         //삭제 권한 로직 -> 유저 담당
         postRepository.deleteById(id);
     }
+
+
+    // 게시글 검색
+
+    @Override
+    public Page<PostResponseDto> searchPost(String keyword, SearchOption option, Pageable pageable) {
+
+        return postRepository.searchPost(keyword, option, pageable);
+    }
+
+
 }
